@@ -1,5 +1,8 @@
 # TestProject
 
+Language : Java
+Framework : BDD(Cucumber)
+
 #Objective 1: Checkout and remove the product from cart
 
     **Goal:** Test logging into the application(www.saucedemo.com) with a standard user.
