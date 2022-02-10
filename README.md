@@ -1,6 +1,6 @@
 # TestProject
 
-Language : Java   Framework : BDD(Cucumber)
+Language : Java-----Framework : BDD(Cucumber)
 
 #Objective 1: Checkout and remove the product from cart
 
