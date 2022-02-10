@@ -24,6 +24,7 @@ public class SwagTest extends CommonAction {
 
 	@Given("Launches application and Login")
 	public void launches_application_and_Login() throws FileNotFoundException, IOException, InterruptedException {
+		
 		ca.insertText(sl.getUname(), ca.getproperty("username"));
 		ca.insertText(sl.getPwd(), ca.getproperty("password"));
 		ca.click(sl.getLoginbtn());
@@ -36,7 +37,6 @@ public class SwagTest extends CommonAction {
 		actual = sl.getProductvalue().getText();
 		System.out.println("add" +actual);
 		ca.click(sl.getItem1());
-		System.out.println("item1" +sl.getItem1());
 		ca.click(sl.getItem2());
 		ca.click(sl.getItem3());
 		ca.click(sl.getItem4());
@@ -45,16 +45,12 @@ public class SwagTest extends CommonAction {
 		ca.eletobewait();
 	}
 
-	
-	  @Given("Remove the products from cart") 
+	@Given("Remove the products from cart") 
 	  public void remove_the_products_from_cart() throws InterruptedException {
-	  System.out.println("Inside method");
+	  
 	  actual=sl.getProductvalue().getText(); 
-	  System.out.println("Remove" +actual);
 	  ca.click(sl.getRemoveItem1()); 
-	  System.out.println("Remove1");
 	  ca.click(sl.getRemoveItem2()); 
-	  System.out.println("Remove2");
 	  ca.click(sl.getRemoveItem3()); 
 	  ca.click(sl.getRemoveItem4());
 	  ca.click(sl.getRemoveItem5()); 
@@ -65,6 +61,7 @@ public class SwagTest extends CommonAction {
 
 	@Given("Launches application and Login using valid credentials")
 	public void launches_application_and_Logins() throws FileNotFoundException, IOException, InterruptedException {
+		
 		ca.insertText(sl.getUname(), ca.getproperty("username"));
 		ca.insertText(sl.getPwd(), ca.getproperty("password"));
 		ca.click(sl.getLoginbtn());
@@ -85,19 +82,16 @@ public class SwagTest extends CommonAction {
 	
 	@Given("check each item as correct title")
 	public void check_each_item_as_correct_title() throws FileNotFoundException, IOException, InterruptedException {
-		List<String> itemTitles = getAllProductTitle();
 		
+		List<String> itemTitles = getAllProductTitle();
 		for(int i=0; i<itemTitles.size(); i++) {
 			actual = itemTitles.get(i);
 			ca.eletobewait();
 			expected = ca.getproperty("name"+i);
-			//System.out.println("actual " +actual + "expected " +expected);
 			Assert.assertEquals(expected, actual);
 			System.out.println(expected + " value is found same in add to page page");
 		}
-		 
-
-	}
+    }
 
 	public List<String> getAllProductDescription()
 	{
@@ -112,13 +106,12 @@ public class SwagTest extends CommonAction {
 	}
 	@Given("check each item as correct description")
 	public void check_each_item_as_correct_description() throws FileNotFoundException, IOException, InterruptedException {
-          List<String> itemDescription = getAllProductDescription();
-		
+          
+		List<String> itemDescription = getAllProductDescription();
 		for(int i=0; i<itemDescription.size(); i++) {
 			actual = itemDescription.get(i);
 			ca.eletobewait();
 			expected = ca.getproperty("description"+i);
-			//System.out.println("actual " +actual + "expected " +expected);
 			Assert.assertEquals(expected, actual);
 			System.out.println(expected + " value is found same in add to page page");
 		}
@@ -138,11 +131,11 @@ public class SwagTest extends CommonAction {
 		productPrice.add(sl.getProductPrice6().getText());
 		return productPrice;
 	}
+	
 	@Given("check each item as correct price")
 	public void check_each_item_as_correct_price() throws FileNotFoundException, IOException, InterruptedException {
-
-        List<String> itemPrice = getAllProductPrice();
-		
+        
+		List<String> itemPrice = getAllProductPrice();
 		for(int i=0; i<itemPrice.size(); i++) {
 			actual = itemPrice.get(i);
 			ca.eletobewait();
@@ -157,8 +150,8 @@ public class SwagTest extends CommonAction {
 	
 	  @Given("Launches application and enters invalid user credentials") 
 	  public void launches_application_and_Login_using_invalid_credentials() throws FileNotFoundException, IOException, InterruptedException {
-		 
-	          ca.insertText(sl.getUname(), ca.getproperty("invalidname"));
+		      
+		      ca.insertText(sl.getUname(), ca.getproperty("invalidname"));
 	          ca.insertText(sl.getPwd(), ca.getproperty("invalidpassword"));
 	          ca.click(sl.getLoginbtn()); 
 	          ca.eletobewait(); 
